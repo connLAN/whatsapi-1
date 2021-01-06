@@ -17,13 +17,13 @@ const client = require('twilio')(accountSid, authToken);
  
 client.messages 
       .create({ 
-         body: 'I got your message', 
+         body: 'Your Twilio code is 1238432', 
          from: 'whatsapp:+14155238886',       
          to: 'whatsapp:+919870938538' 
        }) 
       .then(message => console.log(message.sid)) 
       .done();
-
+      
   // Endpoints
 app.post('/logFile',(req, res) => { console.log(req); });
 
