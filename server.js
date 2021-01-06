@@ -15,6 +15,8 @@ const accountSid = 'ACcde02089100f0a483b76738a932c718b';
 const authToken = '4dbffeda3d02b3a1396ab0c40f0050c6';  
 const client = require('twilio')(accountSid, authToken);
 
+const MessagingResponse = require('twilio').twiml.MessagingResponse;
+
 client.messages 
 .create({ 
    body: 'Hello! This is an editable text message. You are free to change it and write whatever you like.', 
@@ -27,7 +29,12 @@ client.messages
 
 // Request Handling
 app.post('/logFile', (req, res) => { 
-   console.log(req);
+   const twiml = new MessagingResponse();
+
+   twiml.message('The Robots are coming! Head for the hills!');
+ 
+   res.writeHead(200, {'Content-Type': 'text/xml'});
+   res.end(twiml.toString());
 });
 
 app.listen(8080,()=> {
