@@ -18,6 +18,7 @@ const client = new twilio(accountSid, authToken);
 
   // Endpoints
 app.post('/logFile',(req, res) => { 
+   console.log(req);
    client.messages 
       .create({ 
          body: 'Hello! This is an editable text message. You are free to change it and write whatever you like.', 
