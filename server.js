@@ -9,7 +9,9 @@ const authToken = "67c91483cb14928e3d71a32ed32ee460";
 const client = require('twilio')(accountSid, authToken);
 
 // Request Handling
-app.post('/logFile', (req, res) => { 
+app.post('/api/logFile', (req, res) => {
+console.log("got req :")
+ 
    client.messages 
       .create({ 
          body: 'from abhishek server', 
