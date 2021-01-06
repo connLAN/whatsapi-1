@@ -15,7 +15,10 @@ const accountSid = 'ACcde02089100f0a483b76738a932c718b';
 const authToken = '4dbffeda3d02b3a1396ab0c40f0050c6'; 
 const client = require('twilio')(accountSid, authToken); 
  
-client.messages 
+
+  // Endpoints
+app.post('/logFile',(req, res) => { 
+   client.messages 
       .create({ 
          body: 'Hello! This is an editable text message. You are free to change it and write whatever you like.', 
          from: 'whatsapp:+14155238886',       
@@ -23,9 +26,7 @@ client.messages
        }) 
       .then(message => console.log(message.sid)) 
       .done();
-
-  // Endpoints
-app.post('/logFile',(req, res) => { console.log(req); });
+ });
 
 app.listen(8080,()=> {
 console.log("Server is running on 8080");
