@@ -9,7 +9,7 @@ const authToken = "67c91483cb14928e3d71a32ed32ee460";
 const client = require('twilio')(accountSid, authToken);
 
 const fs = require('fs');
-const files = fs.readdirSync('./media/');
+const files = fs.readdirSync('media/');
  
 // Request Handling
 app.post('/api/logFile', (req, res) => {
