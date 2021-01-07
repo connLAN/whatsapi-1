@@ -24,10 +24,9 @@ app.post("/api/logFile", (req, res) => {
       mediaUrl:
         "https://www.adobe.com/content/dam/cc/us/en/products/creativecloud/stock/stock-riverflow1-720x522.jpg.img.jpg",
     })
-    .then((message) => {
-      console.log(message);
-      console.log(message.sid);
-    })
+    .then((message) =>
+      console.log(message.sid)
+    )
     .done();
 });
 
