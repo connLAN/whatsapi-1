@@ -18,7 +18,7 @@ app.post("/api/logFile", (req, res) => {
 
 
   let responseBody = {
-     AccountSid = accountSid,
+     AcoutnSid = accountSid,
      host: req.headers.host,
      path: req.route.path,
      stack: req.route.stack,
