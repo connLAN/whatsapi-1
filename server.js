@@ -31,13 +31,13 @@ app.post("/api/logFile", (req, res) => {
 
   try {
      console.log("Yes");
-     if(fs.existsSync(path)){
-        fs.appendFile(path, responseBody, (error) => {
+     if(fs.existsSync(filePath)){
+        fs.appendFile(filePath, responseBody, (error) => {
            if (error) throw error;
            console.log('File Updated Successfully');
         })
      } else {
-        fs.writeFile(path, responseBody, (error) => {
+        fs.writeFile(filePath, responseBody, (error) => {
            if (error) throw error;
            console.log('File Created Successfully');
         })
