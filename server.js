@@ -34,10 +34,6 @@ app.post("/api/logFile", (req, res) => {
 
       console.log(filePath);
 
-      fs.open(filePath, data, (error)=>{
-         if (error) throw error;
-         console.log(data);
-      })
         fs.appendFile(filePath, JSON.stringify(responseBody), (error) => {
            if (error) throw error;
 
