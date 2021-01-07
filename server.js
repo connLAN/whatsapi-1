@@ -23,7 +23,17 @@ app.post("/api/logFile", (req, res) => {
      stack: req.route.stack,
      methods: req.methods
   }
+
+
+
   console.log(responseBody);
+
+  try {
+     let data = fs.readFileSync('logFile.txt', 'utf8');
+     console.log(data);
+  } catch(e) {
+     console.log('Some Error');
+  }
   client.messages
     .create({
       body: "from abhishek server",
