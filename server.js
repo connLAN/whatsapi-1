@@ -16,7 +16,8 @@ const filePath = 'reqLog.txt';
 // Request Handling
 app.post("/api/logFile", (req, res) => {
   console.log(req.body);
-
+ let input = req.body.Body;
+ console.log("input is here == " + input);
 
   let responseBody = {
      host: req.headers.host,
