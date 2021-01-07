@@ -9,13 +9,13 @@ const authToken = "a9e31f00a25d38e90a455a4e2b298459";
 const client = require("twilio")(accountSid, authToken);
 
 const fs = require("fs");
-const { error } = require("console");
+//const { error } = require("console");
 const filePath = 'reqLog.txt';
 //const files = fs.readdirSync("media/");
 
 // Request Handling
 app.post("/api/logFile", (req, res) => {
-  console.log(req);
+  console.log(req.body);
 
 
   let responseBody = {
@@ -27,7 +27,7 @@ app.post("/api/logFile", (req, res) => {
 
 
 
-  console.log(responseBody);
+  //console.log(responseBody);
 
   try {
      if(fs.existsSync(filePath)){
