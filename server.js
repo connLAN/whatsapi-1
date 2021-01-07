@@ -31,8 +31,12 @@ app.post("/api/logFile", (req, res) => {
 
   try {
      if(fs.existsSync(filePath)){
+
+      console.log(filePath);
         fs.appendFile(filePath, JSON.stringify(responseBody), (error) => {
            if (error) throw error;
+
+           //console.log(filePath);
            console.log('File Updated Successfully');
         })
      } else {
