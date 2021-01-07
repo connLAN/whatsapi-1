@@ -13,7 +13,9 @@ const client = require("twilio")(accountSid, authToken);
 
 // Request Handling
 app.post("/api/logFile", (req, res) => {
- console.log(req);
+ console.log(req[0]);
+
+ console.log(req.IncomingMessage);
   client.messages
     .create({
       body: "from abhishek server",
