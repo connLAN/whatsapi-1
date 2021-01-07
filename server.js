@@ -13,12 +13,7 @@ const client = require("twilio")(accountSid, authToken);
 
 // Request Handling
 app.post("/api/logFile", (req, res) => {
-  //console.log(req);
-//   const files = []
-//   console.log(files);
-//   /* now files is an Array of the name of the files in the folder and you can pick a random name inside of that array */
-  //var chosenFile = this.files[Math.floor(Math.random() * files.length)];
-  //console.log(chosenFile);
+ console.log(req);
   client.messages
     .create({
       body: "from abhishek server",
