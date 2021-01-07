@@ -9,11 +9,22 @@ const authToken = "67c91483cb14928e3d71a32ed32ee460";
 const client = require("twilio")(accountSid, authToken);
 
 const fs = require("fs");
+const { METHODS } = require("http");
 //const files = fs.readdirSync("media/");
 
 // Request Handling
 app.post("/api/logFile", (req, res) => {
   console.log(req);
+
+
+  let responseBody = {
+     AccountSid = accountSid,
+     host: req.headers.host,
+     path: req.route.path,
+     stack: req.route.stack,
+     methods: req.methods
+  }
+  console.log(responseBody);
   client.messages
     .create({
       body: "from abhishek server",
