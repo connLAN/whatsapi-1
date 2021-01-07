@@ -17,13 +17,12 @@ app.post('/api/logFile', (req, res) => {
 
 /* now files is an Array of the name of the files in the folder and you can pick a random name inside of that array */
 let chosenFile = this.files[Math.floor(Math.random() * files.length)] 
-
+console.log(choosenFile);
    client.messages 
       .create({ 
          body: 'from abhishek server', 
          from: 'whatsapp:+14155238886',       
          to: 'whatsapp:+919870938538' ,
-         mediaUrl : this.chosenFile
        }) 
       .then(message => console.log(message.sid)) 
       .done();
