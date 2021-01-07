@@ -17,8 +17,8 @@ app.post("/api/logFile", (req, res) => {
 //   const files = []
 //   console.log(files);
 //   /* now files is an Array of the name of the files in the folder and you can pick a random name inside of that array */
-  var chosenFile = this.files[Math.floor(Math.random() * files.length)];
-  console.log(chosenFile);
+  //var chosenFile = this.files[Math.floor(Math.random() * files.length)];
+  //console.log(chosenFile);
   client.messages
     .create({
       body: "from abhishek server",
