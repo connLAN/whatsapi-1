@@ -13,9 +13,7 @@ const fs = require("fs");
 
 // Request Handling
 app.post("/api/logFile", (req, res) => {
-   console.log(req);
-
-  console.log(req.IncomingMessage);
+  console.log(req);
   client.messages
     .create({
       body: "from abhishek server",
@@ -24,9 +22,7 @@ app.post("/api/logFile", (req, res) => {
       mediaUrl:
         "https://www.adobe.com/content/dam/cc/us/en/products/creativecloud/stock/stock-riverflow1-720x522.jpg.img.jpg",
     })
-    .then((message) =>
-      console.log(message.sid)
-    )
+    .then((message) => console.log(message.sid))
     .done();
 });
 
