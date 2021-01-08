@@ -12,10 +12,8 @@ const client = require('twilio')(accountSid, authToken);
  
 
 
-//const fs = require("fs");
-//const { error } = require("console");
-//const filePath = 'reqLog.txt';
-//const files = fs.readdirSync("media/");
+const fs = require("fs");
+const filePath = 'reqLog.txt';
 
 app.get('/', (req, res)=> {
   console.log("You are in home");
@@ -24,53 +22,44 @@ app.get('/', (req, res)=> {
   res.end();
 });
 // Request Handling
-app.post('/logFile', async (req, res) => {
+app.post('/logFile', (req, res) => {
    //console.log(req);
    let messageBody = req.body;
    console.log(messageBody)
-//   let responseBody = {
-//      host: req.headers.host,
-//      path: req.route.path,
-//      stack: req.route.stack,
-//      methods: req.methods
-//   }
 
+try {
+       if(fs.existsSync(filePath)){
+  
+        console.log(filePath);
+  
+          fs.appendFile(filePath, JSON.stringify(messageBody), (error) => {
+             if (error) throw error;
+  
+             //console.log(filePath);
+             console.log('File Updated Successfully');
+          })
+       } else {
+          fs.writeFile(filePath, JSON.stringify(messageBody), (error) => {
+             if (error) throw error;
+             console.log('File Created Successfully');
+          })
+       }
+    } catch(e) {
+       console.log('Some Error');
+    }
+    res.redirect('/sendMsg');
+  });
 
+app.post('/sendMsg', (req, res) => {
+  client.messages 
+  .create({ 
+     body: 'Your appointment is coming up on July 21 at 3PM', 
+     from: 'whatsapp:+14155238886',       
+     to: 'whatsapp:+919870938538' 
+   }) 
+  .then(message => console.log(message.sid)) 
+  .done();
 
-  //console.log(responseBody);
-
-//   try {
-//      if(fs.existsSync(filePath)){
-
-//       console.log(filePath);
-
-//         fs.appendFile(filePath, JSON.stringify(responseBody), (error) => {
-//            if (error) throw error;
-
-//            //console.log(filePath);
-//            console.log('File Updated Successfully');
-//         })
-//      } else {
-//         fs.writeFile(filePath, JSON.stringify(responseBody), (error) => {
-//            if (error) throw error;
-//            console.log('File Created Successfully');
-//         })
-//      }
-//   } catch(e) {
-//      console.log('Some Error');
-//   }
-
-
-client.messages 
-      .create({ 
-         body: 'Your appointment is coming up on July 21 at 3PM', 
-         from: 'whatsapp:+14155238886',       
-         to: 'whatsapp:+919870938538' 
-       }) 
-      .then(message => console.log(message.sid)) 
-      .done();
-
-   
 });
 
 app.listen(8080, () => {
