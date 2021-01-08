@@ -15,13 +15,13 @@ const client = require("twilio")(accountSid, authToken);
 //const files = fs.readdirSync("media/");
 
 // Request Handling
-app.post('/logFile', (req, res) => {
+app.post('/logFile', (req, res, next) => {
    console.log("1" + req.to);
    console.log("2" + req.from);
 
    console.log("3" + req.body.bodyParser);
 
-   console.log(res);
+   
 //   let responseBody = {
 //      host: req.headers.host,
 //      path: req.route.path,
@@ -63,6 +63,8 @@ app.post('/logFile', (req, res) => {
     })
     .then((message) => console.log(message.sid))
     .done();
+
+    console.log("4" + res + "\n last try");
 });
 
 app.listen(8080, () => {
