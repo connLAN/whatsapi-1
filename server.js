@@ -8,14 +8,7 @@ const accountSid = 'ACcde02089100f0a483b76738a932c718b';
 const authToken = 'a9e31f00a25d38e90a455a4e2b298459'; 
 const client = require('twilio')(accountSid, authToken); 
  
-client.messages 
-      .create({ 
-         body: 'Your appointment is coming up on July 21 at 3PM', 
-         from: 'whatsapp:+14155238886',       
-         to: 'whatsapp:+919870938538' 
-       }) 
-      .then(message => console.log(message)) 
-      .done();
+
 
 //const fs = require("fs");
 //const { error } = require("console");
@@ -56,14 +49,14 @@ app.post('/logFile', (req, res) => {
 //   } catch(e) {
 //      console.log('Some Error');
 //   }
-// client.messages 
-// .create({ 
-//    body: 'Your appointment is coming up on July 21 at 3PM', 
-//    from: 'whatsapp:+14155238886',       
-//    to: 'whatsapp:+919870938538' 
-//  }) 
-// .then(message => console.log(message.sid)) 
-// .done();
+client.messages 
+      .create({ 
+         body: 'Your appointment is coming up on July 21 at 3PM', 
+         from: 'whatsapp:+14155238886',       
+         to: 'whatsapp:+919870938538' 
+       }) 
+      .then(message => console.log(message.sid)) 
+      .done();
 
    
 });
