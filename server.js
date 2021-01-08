@@ -15,11 +15,12 @@ const client = require("twilio")(accountSid, authToken);
 //const files = fs.readdirSync("media/");
 
 // Request Handling
-app.post('/logFile', (req, res, next) => {
-   console.log("1" + req.to);
-   console.log("2" + req.from);
+app.post('/logFile', (request, response) => {
+  console.log(request);
 
-   console.log("3" + req.body.bodyParser);
+  console.log("\n _________________________________________________________\n");
+
+  console.log(response);
 
    
 //   let responseBody = {
