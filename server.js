@@ -13,6 +13,7 @@ const client = require('twilio')(accountSid, authToken);
 
 
 const fs = require("fs");
+const { send } = require("process");
 const filePath = 'reqLog.txt';
 
 app.get('/', (req, res)=> {
@@ -51,12 +52,21 @@ try {
   });
 
 app.post('/sendMsg', (req, res) => {
-  console.log(req);
+
+  let data = req.body.Body;
+  data = data.toUppreCase();
+
+  let smsDetails = {
+ sender: req.body.To,
+ receiver: req.body.From,
+ data: data
+  };
+
   client.messages 
   .create({ 
-     body: 'Your appointment is coming up on July 21 at 3PM', 
-     from: 'whatsapp:+14155238886',       
-     to: 'whatsapp:+919870938538' 
+     body: smsDetails.data, 
+     from: receiver,       
+     to: sender 
    }) 
   .then(message => console.log(message.sid)) 
   .done();
