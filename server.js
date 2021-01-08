@@ -16,6 +16,12 @@ const client = require('twilio')(accountSid, authToken);
 //const filePath = 'reqLog.txt';
 //const files = fs.readdirSync("media/");
 
+app.get('/', (req, res)=> {
+  console.log("You are in home");
+
+  res.write("You are in home");
+  res.end();
+});
 // Request Handling
 app.post('/logFile', (req, res) => {
    console.log(req);
@@ -50,6 +56,7 @@ app.post('/logFile', (req, res) => {
 //   } catch(e) {
 //      console.log('Some Error');
 //   }
+
 
 client.messages 
       .create({ 
