@@ -49,6 +49,8 @@ app.post('/logFile', function(req, res){
 //   } catch(e) {
 //      console.log('Some Error');
 //   }
+
+client.messages(accountSid).fetch().then(message => console.log(message));
 //   client.messages
 //     .create({
 //       body: "from abhishek server",
@@ -60,10 +62,6 @@ app.post('/logFile', function(req, res){
 //     .then((message) => console.log(message.sid))
 //     .done();
 
-
-client.messages.list({limit: 20})
-               .then(messages => messages.forEach(m => console.log(m.sid)));
-});
 
 app.listen(8080, () => {
   console.log("Server is running on 8080");
