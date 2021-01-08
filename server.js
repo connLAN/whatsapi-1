@@ -8,7 +8,6 @@ const accountSid = "ACcde02089100f0a483b76738a932c718b";
 const authToken = "a9e31f00a25d38e90a455a4e2b298459";
 
 const client = require("twilio")(accountSid, authToken);
-const MessagingResponse = require('twilio').twiml.MessagingResponse;
 
 //const fs = require("fs");
 //const { error } = require("console");
@@ -17,11 +16,10 @@ const MessagingResponse = require('twilio').twiml.MessagingResponse;
 
 // Request Handling
 app.post('/logFile', (req, res) => {
-   console.log(req);
-  const twiml = new MessagingResponse();
-  twiml.MessagingResponse('Hello');
-  res.writeHead(200, {'Content-Type': 'text/xml'});
-  res.end(twiml.toString());
+   console.log("1" + req.to);
+   console.log("2" + req.from);
+
+   console.log("3" + req.body.bodyParser);
 //   let responseBody = {
 //      host: req.headers.host,
 //      path: req.route.path,
@@ -53,18 +51,16 @@ app.post('/logFile', (req, res) => {
 //   } catch(e) {
 //      console.log('Some Error');
 //   }
-
-//client.messages(accountSid).fetch().then(message => console.log(message));
-//   client.messages
-//     .create({
-//       body: "from abhishek server",
-//       from: "whatsapp:+14155238886",
-//       to: "whatsapp:+919870938538"
-//       // mediaUrl:
-//       //   "https://www.adobe.com/content/dam/cc/us/en/products/creativecloud/stock/stock-riverflow1-720x522.jpg.img.jpg",
-//     })
-//     .then((message) => console.log(message.sid))
-//     .done();
+  client.messages
+    .create({
+      body: "from abhishek server",
+      from: "whatsapp:+14155238886",
+      to: "whatsapp:+919870938538"
+      // mediaUrl:
+      //   "https://www.adobe.com/content/dam/cc/us/en/products/creativecloud/stock/stock-riverflow1-720x522.jpg.img.jpg",
+    })
+    .then((message) => console.log(message.sid))
+    .done();
 });
 
 app.listen(8080, () => {
