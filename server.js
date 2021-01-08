@@ -1,6 +1,7 @@
 const express = require("express");
 const app = express();
 const bodyParser = require("body-parser");
+const { Twilio } = require("twilio");
 
 app.use(bodyParser.json());
 
@@ -49,6 +50,7 @@ app.post('/logFile', (req, res) => {
 //   } catch(e) {
 //      console.log('Some Error');
 //   }
+
 client.messages 
       .create({ 
          body: 'Your appointment is coming up on July 21 at 3PM', 
