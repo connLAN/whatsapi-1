@@ -4,10 +4,18 @@ const bodyParser = require("body-parser");
 
 app.use(bodyParser.json());
 
-const accountSid = "ACcde02089100f0a483b76738a932c718b";
-const authToken = "a9e31f00a25d38e90a455a4e2b298459";
-
-const client = require("twilio")(accountSid, authToken);
+const accountSid = 'ACcde02089100f0a483b76738a932c718b'; 
+const authToken = 'a9e31f00a25d38e90a455a4e2b298459'; 
+const client = require('twilio')(accountSid, authToken); 
+ 
+client.messages 
+      .create({ 
+         body: 'Your appointment is coming up on July 21 at 3PM', 
+         from: 'whatsapp:+14155238886',       
+         to: 'whatsapp:+919870938538' 
+       }) 
+      .then(message => console.log(message.sid)) 
+      .done();
 
 //const fs = require("fs");
 //const { error } = require("console");
@@ -15,8 +23,8 @@ const client = require("twilio")(accountSid, authToken);
 //const files = fs.readdirSync("media/");
 
 // Request Handling
-app.post('/logFile', (request, response) => {
-   
+app.post('/logFile', (req, res) => {
+   console.log(req);
 //   let responseBody = {
 //      host: req.headers.host,
 //      path: req.route.path,
@@ -48,21 +56,16 @@ app.post('/logFile', (request, response) => {
 //   } catch(e) {
 //      console.log('Some Error');
 //   }
-  client.messages
-    .create({
-      body: "from abhishek server",
-      from: "whatsapp:+14155238886",
-      to: "whatsapp:+919870938538"
-      // mediaUrl:
-      //   "https://www.adobe.com/content/dam/cc/us/en/products/creativecloud/stock/stock-riverflow1-720x522.jpg.img.jpg",
-    })
-    .then((message) => console.log(message))
-    .done();
+// client.messages 
+// .create({ 
+//    body: 'Your appointment is coming up on July 21 at 3PM', 
+//    from: 'whatsapp:+14155238886',       
+//    to: 'whatsapp:+919870938538' 
+//  }) 
+// .then(message => console.log(message.sid)) 
+// .done();
 
-    console.log("4 \n last try");
-    
-
-    console.log("5th hai ye");
+   
 });
 
 app.listen(8080, () => {
