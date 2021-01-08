@@ -60,7 +60,7 @@ app.post('/logFile', (request, response) => {
     .done();
 
     console.log("4 \n last try");
-    console.log(res);
+    
 
     console.log("5th hai ye");
 });
