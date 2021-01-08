@@ -20,6 +20,8 @@ app.post('/logFile', (req, res) => {
    console.log("2" + req.from);
 
    console.log("3" + req.body.bodyParser);
+
+   console.log(res);
 //   let responseBody = {
 //      host: req.headers.host,
 //      path: req.route.path,
