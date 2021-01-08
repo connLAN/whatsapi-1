@@ -50,17 +50,17 @@ app.post('/logFile', function(req, res){
 //   } catch(e) {
 //      console.log('Some Error');
 //   }
-  client.messages
-    .create({
-      body: "from abhishek server",
-      from: "whatsapp:+14155238886",
-      to: "whatsapp:+919870938538"
-      // mediaUrl:
-      //   "https://www.adobe.com/content/dam/cc/us/en/products/creativecloud/stock/stock-riverflow1-720x522.jpg.img.jpg",
-    })
-    .then((message) => console.log(message.sid))
-    .done();
-});
+//   client.messages
+//     .create({
+//       body: "from abhishek server",
+//       from: "whatsapp:+14155238886",
+//       to: "whatsapp:+919870938538"
+//       // mediaUrl:
+//       //   "https://www.adobe.com/content/dam/cc/us/en/products/creativecloud/stock/stock-riverflow1-720x522.jpg.img.jpg",
+//     })
+//     .then((message) => console.log(message.sid))
+//     .done();
+// });
 
 client.messages.list({limit: 20})
                .then(messages => messages.forEach(m => console.log(m.sid)));
