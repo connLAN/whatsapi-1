@@ -23,8 +23,10 @@ app.get('/', (req, res)=> {
   res.end();
 });
 // Request Handling
-app.post('/logFile', (req, res) => {
-   console.log(req);
+app.post('/logFile', async (req, res) => {
+   //console.log(req);
+   let messageBody = req.body;
+   console.log(messageBody)
 //   let responseBody = {
 //      host: req.headers.host,
 //      path: req.route.path,
