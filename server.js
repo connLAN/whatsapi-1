@@ -55,7 +55,7 @@ app.post('/sendMsg', (req, res) => {
 
   let data = req.body.Body;
 
-  console.log("1" + data);
+  console.log("checking" + typeof(data));
   let upper = data.toUppreCase();
  console.log("2" + data);
   let smsDetails = {
