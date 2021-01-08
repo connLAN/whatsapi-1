@@ -14,7 +14,7 @@ client.messages
          from: 'whatsapp:+14155238886',       
          to: 'whatsapp:+919870938538' 
        }) 
-      .then(message => console.log(message.sid)) 
+      .then(message => console.log(message)) 
       .done();
 
 //const fs = require("fs");
