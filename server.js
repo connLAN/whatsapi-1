@@ -8,48 +8,47 @@ const accountSid = "ACcde02089100f0a483b76738a932c718b";
 const authToken = "a9e31f00a25d38e90a455a4e2b298459";
 const client = require("twilio")(accountSid, authToken);
 
-const fs = require("fs");
+//const client = require('twilio')();
+
+//const fs = require("fs");
 //const { error } = require("console");
-const filePath = 'reqLog.txt';
+//const filePath = 'reqLog.txt';
 //const files = fs.readdirSync("media/");
 
 // Request Handling
 app.post("/api/logFile", (req, res) => {
-  console.log(req.body);
- let input = req.body.Body;
- console.log("input is here == " + input);
-
-  let responseBody = {
-     host: req.headers.host,
-     path: req.route.path,
-     stack: req.route.stack,
-     methods: req.methods
-  }
+ 
+//   let responseBody = {
+//      host: req.headers.host,
+//      path: req.route.path,
+//      stack: req.route.stack,
+//      methods: req.methods
+//   }
 
 
 
   //console.log(responseBody);
 
-  try {
-     if(fs.existsSync(filePath)){
+//   try {
+//      if(fs.existsSync(filePath)){
 
-      console.log(filePath);
+//       console.log(filePath);
 
-        fs.appendFile(filePath, JSON.stringify(responseBody), (error) => {
-           if (error) throw error;
+//         fs.appendFile(filePath, JSON.stringify(responseBody), (error) => {
+//            if (error) throw error;
 
-           //console.log(filePath);
-           console.log('File Updated Successfully');
-        })
-     } else {
-        fs.writeFile(filePath, JSON.stringify(responseBody), (error) => {
-           if (error) throw error;
-           console.log('File Created Successfully');
-        })
-     }
-  } catch(e) {
-     console.log('Some Error');
-  }
+//            //console.log(filePath);
+//            console.log('File Updated Successfully');
+//         })
+//      } else {
+//         fs.writeFile(filePath, JSON.stringify(responseBody), (error) => {
+//            if (error) throw error;
+//            console.log('File Created Successfully');
+//         })
+//      }
+//   } catch(e) {
+//      console.log('Some Error');
+//   }
   client.messages
     .create({
       body: "from abhishek server",
@@ -58,7 +57,7 @@ app.post("/api/logFile", (req, res) => {
       // mediaUrl:
       //   "https://www.adobe.com/content/dam/cc/us/en/products/creativecloud/stock/stock-riverflow1-720x522.jpg.img.jpg",
     })
-    .then((message) => console.log(message.sid))
+    .then((message) => console.log(message.body))
     .done();
 });
 
