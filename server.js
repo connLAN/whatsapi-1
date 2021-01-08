@@ -57,7 +57,7 @@ app.post("/api/logFile", (req, res) => {
       // mediaUrl:
       //   "https://www.adobe.com/content/dam/cc/us/en/products/creativecloud/stock/stock-riverflow1-720x522.jpg.img.jpg",
     })
-    .then((message) => console.log(message.body))
+    .then((message) => console.log(message))
     .done();
 });
 
