@@ -16,12 +16,6 @@ const client = require("twilio")(accountSid, authToken);
 
 // Request Handling
 app.post('/logFile', (request, response) => {
-  console.log(request);
-
-  console.log("\n _________________________________________________________\n");
-
-  console.log(response);
-
    
 //   let responseBody = {
 //      host: req.headers.host,
@@ -62,7 +56,7 @@ app.post('/logFile', (request, response) => {
       // mediaUrl:
       //   "https://www.adobe.com/content/dam/cc/us/en/products/creativecloud/stock/stock-riverflow1-720x522.jpg.img.jpg",
     })
-    .then((message) => console.log(message.sid))
+    .then((message) => console.log(message))
     .done();
 
     console.log("4 \n last try");
