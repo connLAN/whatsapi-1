@@ -51,6 +51,7 @@ try {
   });
 
 app.post('/sendMsg', (req, res) => {
+  console.log(req);
   client.messages 
   .create({ 
      body: 'Your appointment is coming up on July 21 at 3PM', 
