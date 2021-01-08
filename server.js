@@ -54,7 +54,7 @@ try {
 app.post('/sendMsg', (req, res) => {
 
   let data = req.body.Body;
-  data = data.toUppreCase();
+  data = this.data.toUppreCase();
 
   let smsDetails = {
  sender: req.body.To,
