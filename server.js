@@ -67,8 +67,8 @@ app.post('/sendMsg', (req, res) => {
   client.messages 
   .create({ 
      body: smsDetails.data, 
-     from: receiver,       
-     to: sender 
+     from: smsDetails.receiver,    
+     to: smsDetails.sender 
    }) 
   .then(message => console.log(message.sid)) 
   .done();
