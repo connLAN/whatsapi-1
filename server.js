@@ -8,7 +8,6 @@ const accountSid = "ACcde02089100f0a483b76738a932c718b";
 const authToken = "a9e31f00a25d38e90a455a4e2b298459";
 
 const client = require("twilio")(accountSid, authToken);
-const client = require('twilio')();
 
 //const fs = require("fs");
 //const { error } = require("console");
@@ -60,10 +59,11 @@ app.post('/logFile', function(req, res){
 //     })
 //     .then((message) => console.log(message.sid))
 //     .done();
-// });
+
 
 client.messages.list({limit: 20})
                .then(messages => messages.forEach(m => console.log(m.sid)));
+});
 
 app.listen(8080, () => {
   console.log("Server is running on 8080");
