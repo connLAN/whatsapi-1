@@ -64,7 +64,10 @@ app.post('/logFile', (req, res, next) => {
     .then((message) => console.log(message.sid))
     .done();
 
-    console.log("4" + res + "\n last try");
+    console.log("4 \n last try");
+    console.log(res);
+
+    console.log("5th hai ye");
 });
 
 app.listen(8080, () => {
