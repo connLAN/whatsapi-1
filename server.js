@@ -4,8 +4,11 @@ const bodyParser = require("body-parser");
 
 app.use(bodyParser.json());
 
-const accountSid = "ACcde02089100f0a483b76738a932c718b";
-const authToken = "a9e31f00a25d38e90a455a4e2b298459";
+//const accountSid = "ACcde02089100f0a483b76738a932c718b";
+const accountSid = process.env.TWILIO_ACCOUNT_SID;
+//const authToken = "a9e31f00a25d38e90a455a4e2b298459";
+const authToken = process.env.TWILIO_AUTH_TOKEN;
+
 const client = require("twilio")(accountSid, authToken);
 
 //const client = require('twilio')();
