@@ -15,7 +15,7 @@ const client = require('twilio')(accountSid, authToken);
 const fs = require("fs");
 const { send } = require("process");
 const file = 'reqLog.txt';
-
+let Users = [];
 // app.get('/', (req, res)=> {
 //   console.log("You are in home");
 
@@ -26,6 +26,15 @@ const file = 'reqLog.txt';
 // Request Handling
 app.post('/checkUser', (req,res) => {
 console.log(req);
+if (req.body.Body = 'Hello'){
+ if(Users.includes(req.body.From)){
+    console.log("Yes it includes");
+ } else {
+    console.log("It doesn't includes");
+ }
+} else{
+   res.send("Sorry You're not authenticated");
+}
 });
 let users = [];
 app.post('/logFile', (req, res) => {
