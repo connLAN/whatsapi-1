@@ -26,7 +26,7 @@ let Users = [];
 // Request Handling
 app.post('/checkUser', (req,res) => {
 console.log(req);
-if (req.body.Body = 'Hello'){
+if (req.body.Body == 'Hello'){
  if(Users.includes(req.body.From)){
     console.log("Yes it includes");
  } else {
