@@ -16,12 +16,13 @@ const fs = require("fs");
 const { send } = require("process");
 const file = 'reqLog.txt';
 
-app.get('/', (req, res)=> {
-  console.log("You are in home");
+// app.get('/', (req, res)=> {
+//   console.log("You are in home");
 
-  res.write("You are in home");
-  res.end();
-});
+//   res.write("You are in home");
+//   res.end();
+// });
+
 // Request Handling
 app.post('/logFile', (req, res) => {
    //console.log(req);
@@ -32,13 +33,14 @@ try {
        if(fs.existsSync(file)){
   
         console.log(file);
+
+       
+         //  fs.appendFile(file, JSON.stringify(messageBody), (error) => {
+         //     if (error) throw error;
   
-          fs.appendFile(file, JSON.stringify(messageBody), (error) => {
-             if (error) throw error;
-  
-             //console.log(file);
-             console.log('File Updated Successfully');
-          })
+         //     //console.log(file);
+         //     console.log('File Updated Successfully');
+         //  })
        } else {
           fs.writeFile(file, JSON.stringify(messageBody), (error) => {
              if (error) throw error;
@@ -55,23 +57,21 @@ app.post('/sendMsg', (req, res) => {
 
   let data = req.body.Body;
 
-  console.log("checking" + typeof(data));
-  data = data.toUpperCase();
- console.log("2" + data);
+  data = data.toUpperCase(); 
   let smsDetails = {
  sender: req.body.To,
  receiver: req.body.From,
  data: data
   };
 
-  client.messages 
-  .create({ 
-     body: smsDetails.data, 
-     from: smsDetails.sender,    
-     to: smsDetails.receiver 
-   }) 
-  .then(message => console.log(message.sid)) 
-  .done();
+//   client.messages 
+//   .create({ 
+//      body: smsDetails.data, 
+//      from: smsDetails.sender,    
+//      to: smsDetails.receiver 
+//    }) 
+//   .then(message => console.log(message.sid)) 
+//   .done();
 
 });
 
