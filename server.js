@@ -14,7 +14,7 @@ const client = require('twilio')(accountSid, authToken);
 
 const fs = require("fs");
 const { send } = require("process");
-const filePath = 'reqLog.txt';
+const file = 'reqLog.txt';
 
 app.get('/', (req, res)=> {
   console.log("You are in home");
@@ -29,18 +29,18 @@ app.post('/logFile', (req, res) => {
    console.log(messageBody)
 
 try {
-       if(fs.existsSync(filePath)){
+       if(fs.existsSync(file)){
   
-        console.log(filePath);
+        console.log(file);
   
-          fs.appendFile(filePath, JSON.stringify(messageBody), (error) => {
+          fs.appendFile(file, JSON.stringify(messageBody), (error) => {
              if (error) throw error;
   
-             //console.log(filePath);
+             //console.log(file);
              console.log('File Updated Successfully');
           })
        } else {
-          fs.writeFile(filePath, JSON.stringify(messageBody), (error) => {
+          fs.writeFile(file, JSON.stringify(messageBody), (error) => {
              if (error) throw error;
              console.log('File Created Successfully');
           })
