@@ -24,6 +24,10 @@ const file = 'reqLog.txt';
 // });
 
 // Request Handling
+app.post('/checkUser', (req,res) => {
+console.log(req);
+});
+let users = [];
 app.post('/logFile', (req, res) => {
    //console.log(req);
    let messageBody = req.body;
