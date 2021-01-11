@@ -7,7 +7,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 const accountSid = 'ACcde02089100f0a483b76738a932c718b'; 
-const authToken = 'eab311377b64285e6af44c88965b5490'; 
+const authToken = '3829d330d72ff147b9efac9a33440370'; 
 const client = require('twilio')(accountSid, authToken); 
  
 
@@ -33,7 +33,14 @@ if (req.body.Body = 'Hello'){
     console.log("It doesn't includes");
  }
 } else{
-   res.send("Sorry You're not authenticated");
+     client.messages 
+  .create({ 
+     body: "Soryy You're not Authenticated", 
+     from: "whatsapp:+14155238886",    
+     to: "whatsapp:+919870938538" 
+   }) 
+  .then(message => console.log(message.sid)) 
+  .done();
 }
 });
 let users = [];
