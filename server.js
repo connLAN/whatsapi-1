@@ -7,7 +7,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 const accountSid = "ACcde02089100f0a483b76738a932c718b";
-const authToken = "3829d330d72ff147b9efac9a33440370";
+const authToken = "9dcc1d9c6e0600a37f9441a3aa9509a5";
 const client = require("twilio")(accountSid, authToken);
 
 const fs = require("fs");
