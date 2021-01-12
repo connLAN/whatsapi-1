@@ -1,7 +1,7 @@
 {
   "name": "whatsapi",
   "version": "1.0.0",
-  "description": "This is a WhatsApp Youtube Demo.",
+  "description": "",
   "main": "server.js",
   "scripts": {
     "start": "node server.js"
